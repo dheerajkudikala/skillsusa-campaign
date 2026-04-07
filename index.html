@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dheeraj Kudikala | National Officer at Large</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #120303;
+        --red: #d81e05;
+        --yellow: #fde403;
+        --white: #ffffff;
+        --black: #0b0b0b;
+        --text: #ffffff;
+        --muted: #f5e27c;
+        --shadow: 0 30px 80px rgba(216, 30, 5, 0.28);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: linear-gradient(
+          180deg,
+          #140407 0%,
+          #0a0505 48%,
+          #040202 100%
+        );
+        color: var(--text);
+        font-family: "Nunito", system-ui, sans-serif;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 15% 15%,
+            rgba(255, 228, 137, 0.12),
+            transparent 14%
+          ),
+          radial-gradient(
+            circle at 80% 12%,
+            rgba(255, 50, 50, 0.12),
+            transparent 12%
+          ),
+          radial-gradient(
+            circle at 18% 84%,
+            rgba(255, 231, 62, 0.12),
+            transparent 12%
+          );
+        pointer-events: none;
+      }
+      .page {
+        width: min(1040px, 100%);
+        margin: 0 auto;
+        padding: 1rem 1rem 2rem;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: 38px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(216, 30, 5, 0.18)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        box-shadow: var(--shadow);
+        padding: 1.4rem;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        top: -80px;
+        right: -80px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        bottom: -90px;
+        left: -80px;
+        border-radius: 50%;
+        background: rgba(255, 238, 68, 0.12);
+      }
+      .topline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: var(--yellow);
+        font-size: 0.82rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
+      .topline span {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        background: var(--white);
+        box-shadow: 0 0 0 8px rgba(255, 222, 3, 0.2);
+      }
+      .title-block {
+        text-align: center;
+        padding-top: 0.3rem;
+      }
+      .title-block h1 {
+        margin: 0;
+        font-family: "Bangers", cursive;
+        font-size: clamp(3rem, 7vw, 5rem);
+        color: var(--red);
+        line-height: 0.9;
+        text-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+      }
+      .title-block p {
+        margin: 1rem auto 0;
+        max-width: 600px;
+        color: var(--white);
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin: 1.25rem auto 0;
+        padding: 0.95rem 1.2rem;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.65);
+        border: 1px solid rgba(255, 222, 3, 0.5);
+        color: var(--yellow);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        width: fit-content;
+      }
+      .hero-grid {
+        display: grid;
+        gap: 1.2rem;
+        margin-top: 1.8rem;
+      }
+      .hero-main {
+        position: relative;
+        border-radius: 32px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 30px 70px rgba(216, 30, 5, 0.16);
+      }
+      .hero-main video {
+        width: 100%;
+        display: block;
+        height: auto;
+      }
+      .video-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(
+          circle at top center,
+          rgba(255, 255, 255, 0.14),
+          transparent 24%
+        );
+      }
+      .hero-main .wheel {
+        position: absolute;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        border: 9px solid rgba(255, 255, 255, 0.28);
+        box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.65);
+        animation: spin 4.4s linear infinite;
+      }
+      .hero-main .wheel.left {
+        left: 8%;
+        bottom: 10%;
+      }
+      .hero-main .wheel.right {
+        right: 8%;
+        bottom: 10%;
+      }
+      .hero-main .speed {
+        position: absolute;
+        width: 160px;
+        height: 8px;
+        border-radius: 999px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0),
+          rgba(255, 232, 244, 0.9),
+          rgba(255, 255, 255, 0)
+        );
+        filter: blur(0.5px);
+        animation: zoom 1.2s ease-in-out infinite;
+      }
+      .hero-main .speed.one {
+        top: 18%;
+        left: -10%;
+        transform: rotate(-14deg);
+      }
+      .hero-main .speed.two {
+        top: 52%;
+        right: -6%;
+        transform: rotate(10deg);
+        animation-delay: 0.3s;
+      }
+      .hero-main .speed.three {
+        bottom: 14%;
+        left: 20%;
+        transform: rotate(-6deg);
+        animation-delay: 0.6s;
+      }
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.2rem;
+      }
+      .stat-card {
+        position: relative;
+        padding: 1rem 1rem 1.2rem;
+        border-radius: 28px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 222, 3, 0.08)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 18px 42px rgba(216, 30, 5, 0.14);
+        overflow: hidden;
+      }
+      .stat-card::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        top: -28px;
+        right: -22px;
+        background: rgba(255, 222, 3, 0.18);
+      }
+      .stat-card strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--red);
+      }
+      .stat-card span {
+        color: var(--white);
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+      .art-row {
+        display: flex;
+        justify-content: center;
+        gap: 0.9rem;
+        flex-wrap: wrap;
+        margin-top: 1.75rem;
+      }
+      .art-panel {
+        width: 126px;
+        height: 126px;
+        border-radius: 32px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.12),
+          rgba(255, 26, 26, 0.1)
+        );
+        box-shadow: 0 20px 42px rgba(216, 30, 5, 0.12);
+        display: grid;
+        place-items: center;
+      }
+      .art-panel svg {
+        width: 64px;
+        height: 64px;
+      }
+      .about {
+        margin-top: 2.5rem;
+        padding: 2rem;
+        border-radius: 32px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(216, 30, 5, 0.12)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .about h2 {
+        margin: 0 0 1.5rem 0;
+        font-size: 2rem;
+        color: var(--red);
+        font-family: "Bangers", cursive;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      .about-content {
+        display: grid;
+        gap: 1.5rem;
+      }
+      .about-text {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--white);
+      }
+      .about-text p {
+        margin: 0 0 1rem 0;
+      }
+      .about-text p:last-child {
+        margin-bottom: 0;
+      }
+      .about-text strong {
+        color: var(--yellow);
+      }
+      .highlights {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .highlight {
+        padding: 1rem;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 222, 3, 0.3);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--white);
+      }
+      .highlight strong {
+        display: block;
+        color: var(--yellow);
+        margin-bottom: 0.4rem;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      @media (max-width: 620px) {
+        .about {
+          padding: 1.5rem;
+          margin-top: 2rem;
+        }
+        .about h2 {
+          font-size: 1.6rem;
+        }
+        .highlights {
+          grid-template-columns: 1fr;
+          gap: 0.8rem;
+        }
+      }
+      .footnote {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+        margin-top: 1.3rem;
+        color: var(--yellow);
+        font-size: 0.93rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+      .footnote::before {
+        content: "⚡";
+        color: var(--yellow);
+        font-size: 1.05rem;
+      }
+      .footer {
+        margin-top: 2rem;
+        text-align: center;
+        color: var(--white);
+        font-size: 0.95rem;
+      }
+      .footer strong {
+        color: var(--yellow);
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes zoom {
+        0%,
+        100% {
+          transform: translateX(0) scaleX(1);
+          opacity: 0.4;
+        }
+        50% {
+          transform: translateX(14px) scaleX(1.15);
+          opacity: 0.95;
+        }
+      }
+      @media (max-width: 780px) {
+        .stats-row {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 620px) {
+        .page {
+          padding: 1rem;
+        }
+        .hero {
+          padding: 1.2rem;
+          border-radius: 30px;
+        }
+        .title-block h1 {
+          font-size: 3rem;
+        }
+        .hero-main .wheel {
+          width: 78px;
+          height: 78px;
+        }
+        .art-panel {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="hero">
+        <div class="topline"><span></span>National Officer Candidate</div>
+        <div class="title-block">
+          <h1>Dheeraj Kudikala</h1>
+          <p>Video first. Quick snapshot. Racing energy.</p>
+        </div>
+        <!-- <div class="badge">Learn More below</div> -->
+        <div class="hero-grid">
+          <div class="hero-main">
+            <div class="video-overlay"></div>
+            <video
+              controls
+              poster="https://i.pinimg.com/474x/60/df/bf/60dfbfe7a8764e7ea685c267587c1017.jpg"
+            >
+              <source src="dheeraj-video.mp4" type="video/mp4" />
+              Your browser cannot play this video. Upload
+              <strong>dheeraj-video.mp4</strong>.
+            </video>
+          </div>
+          <!-- <div>
+            <div class="stats-row">
+              <div class="stat-card">
+                <strong>Leader</strong
+                ><span>Fast, fair, focused on people.</span>
+              </div>
+              <div class="stat-card">
+                <strong>Team</strong
+                ><span>Strong connection and momentum.</span>
+              </div>
+            </div>
+            <div class="stats-row">
+              <div class="stat-card">
+                <strong>Ready</strong><span>Clear voice, national stage.</span>
+              </div>
+              <div class="stat-card">
+                <strong>Bold</strong
+                ><span>Racing energy with calm confidence.</span>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <!-- <div class="art-row">
+          <div class="art-panel" aria-hidden="true">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 46c0 4 4 6 8 6s8-2 8-6"
+                stroke="#7d4d88"
+                stroke-width="4"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path
+                d="M44 46c0 4 4 6 8 6s8-2 8-6"
+                stroke="#7d4d88"
+                stroke-width="4"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path d="M14 42l7-20h22l8 20" fill="#ff94a7" />
+              <path d="M14 42h40l2 4H12l2-4z" fill="#ffbee0" />
+              <circle cx="20" cy="44" r="6" fill="#ffe5ef" />
+              <circle cx="44" cy="44" r="6" fill="#ffe5ef" />
+              <circle cx="20" cy="44" r="3" fill="#ff5f88" />
+              <circle cx="44" cy="44" r="3" fill="#ff5f88" />
+            </svg>
+          </div>
+          <div class="art-panel" aria-hidden="true">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32 4L44 36H20L32 4Z" fill="#ffd9e2" />
+              <path d="M28 36H36L30 60H34L28 36Z" fill="#f9c2d5" />
+              <path
+                d="M22 44H42"
+                stroke="#d3789d"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="art-panel" aria-hidden="true">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 18h36v12H14z" fill="#fff" />
+              <path d="M14 30h36v12H14z" fill="#fccce1" />
+              <path d="M14 42h36v12H14z" fill="#ffe6f5" />
+              <path d="M22 18v36" stroke="#d87b9b" stroke-width="4" />
+              <path d="M34 18v36" stroke="#d87b9b" stroke-width="4" />
+            </svg>
+          </div>
+        </div> -->
+        <section class="about">
+          <h2>About Me</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                I'm a high school student passionate about
+                <strong
+                  >leadership, computer science, and creating opportunities for
+                  others</strong
+                >. As the Founder and President of my school's Computer Science
+                Club, I've built a community where students discover their
+                passion for tech and grow together.
+              </p>
+              <p>
+                Through SkillsUSA, where I serve as State Treasurer, I've seen
+                firsthand how mentorship and opportunity transform students'
+                lives. I'm committed to ensuring that
+                <strong>every student feels heard</strong>, supported, and
+                empowered to reach their potential.
+              </p>
+            </div>
+            <div class="highlights">
+              <div class="highlight">
+                <strong>Leadership</strong>
+                Building communities where students thrive and feel valued
+                through genuine connection and clear vision.
+              </div>
+              <div class="highlight">
+                <strong>Initiative</strong>
+                Taking action to create opportunities, not waiting for
+                permission—from founding a CS Club to innovations in SkillsUSA.
+              </div>
+              <div class="highlight">
+                <strong>Impact</strong>
+                Focused on tangible outcomes that matter: better programs,
+                stronger communication, and real opportunities for growth.
+              </div>
+              <div class="highlight">
+                <strong>Service</strong>
+                Dedicated to hearing all voices and making sure our organization
+                works for every student, not just a few.
+              </div>
+            </div>
+            <div class="about-text" style="margin-top: 0.5rem">
+              <p>
+                <strong>My mission:</strong> Build a culture of leadership,
+                opportunity, and belonging where every student knows they matter
+                and can make an impact.
+              </p>
+            </div>
+          </div>
+        </section>
+        <div class="footnote">Main message first</div>
+      </section>
+      <footer class="footer">
+        <strong>Dheeraj Kudikala</strong> — National Officer at Large
+      </footer>
+    </div>
+  </body>
+</html>
